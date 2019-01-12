@@ -211,10 +211,14 @@ def find_cohort_by_student_name(student_list):
     student_search = input("Who are you looking for?  ")
     #all_students_tuple_list(student_list)
 
-    if student_search in all_students_tuple_list(student_list)[0]:
-        print((student_list)[4])
+    students_tuple = all_students_tuple_list(student_list)
+
+    for student in students_tuple:
+        for item in student:
+            if item == student_search:
+                print('yes', student_search, 'is in', students_tuple[4][4])
     
-    return ("Student not found.")
+                
 
 find_cohort_by_student_name("cohort_data.txt")
 # ##########################################################################################
@@ -284,9 +288,9 @@ find_cohort_by_student_name("cohort_data.txt")
 
 
 
-if __name__ == "__main__":
-    import doctest
+# if __name__ == "__main__":
+#     import doctest
 
-    result = doctest.testmod()
-    if result.failed == 0:
-        print("ALL TESTS PASSED")
+#     result = doctest.testmod()
+#     if result.failed == 0:
+#         print("ALL TESTS PASSED")
